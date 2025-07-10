@@ -1,0 +1,31 @@
+{
+  "name": "trade-publisher-server",
+  "description": "MQL4 Trade Publisher Server",
+  "version": "2.0.0",
+  "runtime": "nodejs18",
+  "main": "server-runflare.js",
+  "env": {
+    "NODE_ENV": "production",
+    "WS_PORT": 3000,
+    "HTTP_PORT": 3001
+  },
+  "ports": [3000, 3001],
+  "health_check": {
+    "path": "/api/health",
+    "port": 3001,
+    "interval": 30
+  },
+  "scaling": {
+    "min_instances": 1,
+    "max_instances": 3,
+    "cpu_threshold": 80,
+    "memory_threshold": 80
+  },
+  "persistent_storage": {
+    "enabled": true,
+    "paths": [
+      "./data",
+      "./logs"
+    ]
+  }
+}

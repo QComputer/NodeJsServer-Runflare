@@ -1,0 +1,33 @@
+{
+  "name": "mql4-trade-publisher-server",
+  "version": "2.0.0",
+  "description": "Unified WebSocket + HTTP Server for MQL4 Trade Publisher - Runflare Edition",
+  "main": "server-runflare.js",
+  "scripts": {
+    "start": "node server-runflare.js",
+    "dev": "NODE_ENV=development node server-runflare.js",
+    "test": "node test-server.js test",
+    "test:performance": "node test-server.js performance",
+    "deploy": "runflare deploy",
+    "logs": "runflare logs",
+    "status": "runflare status"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "mql4",
+    "metatrader",
+    "websocket",
+    "http",
+    "trading",
+    "copy-trading",
+    "runflare"
+  ],
+  "author": "Trade Publisher",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
