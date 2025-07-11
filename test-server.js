@@ -38,7 +38,7 @@ async function testRunflareDeployment() {
     // Test 3: WebSocket Connection
     console.log('\n3. Testing WebSocket Connection...');
     try {
-        const ws = new WebSocket(`wss://${RUNFLARE_URL}:4000`);
+        const ws = new WebSocket(`wss://${RUNFLARE_URL}:3000`);
         
         ws.on('open', () => {
             console.log('✓ WebSocket connected');
@@ -58,7 +58,7 @@ async function testRunflareDeployment() {
     try {
         const postData = 'action=register_publisher&login_id=123456&generate_api_token=true&account_name=Test&account_company=TestBroker&account_server=TestServer';
         
-        const registrationResponse = await makeHttpsPostRequest(`https://${RUNFLARE_URL}/api/trade`, postData);
+        const registrationResponse = await makeHttpsPostRequest(`https://${RUNFLARE_URL}:3001/api/trade`, postData);
         const registration = JSON.parse(registrationResponse);
         
         if (registration.status === 'succeed') {
@@ -89,7 +89,7 @@ function makeHttpsPostRequest(url, postData) {
         const urlObj = new URL(url);
         const options = {
             hostname: urlObj.hostname,
-            port: urlObj.port || 443,
+            port: 3001,
             path: urlObj.pathname,
             method: 'POST',
             headers: {

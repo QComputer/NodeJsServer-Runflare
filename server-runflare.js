@@ -90,7 +90,7 @@ class CopyTradeServer {
         try {
             switch (pathname) {
                 case '/':
-                    this.handleRoot(res);
+                    this.handleRoot(req,res);
                     break;
                 case '/api/health':
                     this.handleHealthCheck(res);
@@ -120,7 +120,7 @@ class CopyTradeServer {
         }
     }
 
-    handleRoot(res) {
+    handleRoot(req,res) {
         const html = `
         <!DOCTYPE html>
         <html>
@@ -159,9 +159,10 @@ class CopyTradeServer {
             <div class="endpoint">
                 <span class="method">GET</span> /api/history?publisher_login_id=ID - Trade history
             </div>
-            
+
             <h2>WebSocket Connection</h2>
-            <p>Connect to: ws://${req.headers.host.split(':')[0]}:${this.wsPort}</p>
+            <p>Connect to: ws://${req.url}:${this.wsPort}</p>
+
         </body>
         </html>
         `;

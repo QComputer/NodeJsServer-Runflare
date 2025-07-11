@@ -1,0 +1,14 @@
+{
+  "totalConnections": 0,
+  "activePublishers": [],
+  "activeSubscribers": [],
+  "messagesProcessed": 0,
+  "tradesProcessed": 0,
+  "httpRequestsProcessed": 12,
+  "lastUpdate": "2025-07-11T02:55:49.690Z",
+  "platform": "Runflare",
+  "ports": {
+    "websocket": 4000,
+    "http": 4001
+  }
+}
